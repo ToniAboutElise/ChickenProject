@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Chicken : MonoBehaviour
 {
+    public Color color;
+    public Head head;
+    public Eyes eyes;
+
     public enum Color
     {
         Yellow,

@@ -15,7 +15,7 @@ public class Raycaster : MonoBehaviour
                 Debug.Log("You selected the " + hit.transform.name);
                 if(hit.transform.GetComponent<Chicken>() == true)
                 {
-                    Destroy(hit.transform.gameObject);
+                    hit.transform.GetComponent<Chicken>().ChickenHit();
                 }
             }
         }

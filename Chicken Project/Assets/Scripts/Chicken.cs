@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Chicken : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public SpriteRenderer spriteRenderer;
+
     public Color color;
     public Head head;
     public Eyes eyes;
@@ -47,4 +50,11 @@ public class Chicken : MonoBehaviour
         White,
         Grey
     }
+
+    public void ChickenHit()
+    {
+        audioSource.Play();
+        spriteRenderer.enabled = false;
+    }
+
 }

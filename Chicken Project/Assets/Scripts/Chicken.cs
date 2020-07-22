@@ -1,11 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Chicken : MonoBehaviour
 {
     public AudioSource audioSource;
     public SpriteRenderer spriteRenderer;
+
+    public Sprite[] colorSprite;
+    public Sprite[] headSprite;
+    public Sprite[] eyesSprite;
+    public Sprite[] beakSprite;
+
+    public SpriteRenderer colorImage;
+    public SpriteRenderer headImage;
+    public SpriteRenderer eyesImage;
+    public SpriteRenderer beakImage;
 
     public Color color;
     public Head head;
@@ -49,6 +60,12 @@ public class Chicken : MonoBehaviour
         Green,
         White,
         Grey
+    }
+
+    [ExecuteInEditMode]
+    protected void SetChickenVisualValues()
+    {
+
     }
 
     public void ChickenHit()

@@ -18,6 +18,8 @@ public class Chicken : MonoBehaviour
     public SpriteRenderer eyesImage;
     public SpriteRenderer beakImage;
 
+    public BoxCollider boxCollider;
+
     public Color color;
     public Head head;
     public Eyes eyes;
@@ -70,6 +72,7 @@ public class Chicken : MonoBehaviour
 
     public void ChickenHit()
     {
+        boxCollider.enabled = false;
         audioSource.Play();
         spriteRenderer.enabled = false;
     }

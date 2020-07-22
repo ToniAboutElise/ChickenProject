@@ -16,4 +16,14 @@ public class ShootingBall : MonoBehaviour
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<Chicken>())
+        {
+            collision.gameObject.GetComponent<Chicken>().ChickenHit();
+            Destroy(gameObject);
+        }
+    }
+
 }

@@ -299,6 +299,7 @@ MonoBehaviour:
   headImage: {fileID: 5950944813778654862}
   eyesImage: {fileID: 5974474765853406268}
   beakImage: {fileID: 1905817943429742943}
+  boxCollider: {fileID: 7790730923515376686}
   color: 0
   head: 0
   eyes: 0

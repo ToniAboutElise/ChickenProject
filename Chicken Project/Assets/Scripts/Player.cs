@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         ShootingBall instance = Instantiate(shootingBallPrefab);
         instance.transform.position = ballTransform.position;
         instance.transform.rotation = ballTransform.rotation;
-        instance.rigidbody.velocity = instance.transform.forward*7*Time.deltaTime;
+        instance.rigidbody.velocity = instance.transform.forward*1200*Time.deltaTime;
     }
 
     public void ResetCamera()

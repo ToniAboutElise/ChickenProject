@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RunnerEnemy : MonoBehaviour
+public class RunnerEntity : MonoBehaviour
 {
     public Rigidbody rb;
+    public float enemiesVelocity = 10;
 
     protected void AutomaticVelocity()
     {
-        rb.velocity = Vector3.forward * -10;
+        rb.velocity = Vector3.forward * -enemiesVelocity;
     }
 
     void Update()

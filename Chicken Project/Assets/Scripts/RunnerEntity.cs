@@ -8,6 +8,15 @@ public class RunnerEntity : MonoBehaviour
     public float enemiesVelocity = 10;
     public bool autoVelocity = true;
 
+    public EntityType entityType;
+
+    public enum EntityType
+    {
+        Enemy,
+        Bonus,
+        PuzzlePiece
+    }
+
     private void Start()
     {
         StartCoroutine(DestroyEntity());

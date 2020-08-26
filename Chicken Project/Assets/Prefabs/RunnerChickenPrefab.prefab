@@ -52,11 +52,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3898507328579417084}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.33, y: 4.13, z: 0.13508572}
+  m_Center: {x: 0, y: 0, z: -0.0288242}
 --- !u!114 &3898507328579417057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +71,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3898507328579417058}
   enemiesVelocity: 10
+  autoVelocity: 1
+  entityType: 0
 --- !u!54 &3898507328579417058
 Rigidbody:
   m_ObjectHideFlags: 0

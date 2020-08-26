@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class RunnerController : MonoBehaviour
 {
+    public RunnerPlayer runnerPlayer;
     public bool leftButtonPressed = false;
     public bool rightButtonPressed = false;
     public bool isRotating = false;
@@ -14,14 +15,16 @@ public class RunnerController : MonoBehaviour
     public Button rightButton;
     public float playerRotationVelocity = 2.5f;
     public float spawnCooldown = 1;
-    public int spawnRate = 3;
+    public int spawnRate = 4;
     public int currentPoints;
     public Text pointsText;
+    public Text livesText;
 
     private void Start()
     {
         rushModeGameObject.SetActive(false);
         StartCoroutine(AddGameVelocity());
+        livesText.text = runnerPlayer.lives.ToString();
     }
 
     protected IEnumerator AddGameVelocity()
@@ -80,6 +83,11 @@ public class RunnerController : MonoBehaviour
     public void TouchRightRelease()
     {
         rightButtonPressed = false;
+    }
+
+    public void GameOver()
+    {
+
     }
 
     private void Update()

@@ -167,6 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4208720153833051272}
   enemiesVelocity: 10
+  autoVelocity: 1
+  entityType: 1
   pointsValue: 100
 --- !u!111 &4236379502436472955
 Animation:

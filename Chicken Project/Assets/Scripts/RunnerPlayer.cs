@@ -5,6 +5,16 @@ using UnityEngine;
 public class RunnerPlayer : MonoBehaviour
 {
     public RunnerController controller;
+    public BoxCollider boxCollider;
+    public int lives = 3;
+
+    public PlayerState playerState = PlayerState.Idle;
+
+    public enum PlayerState
+    {
+        Idle,
+        Invincible
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,8 +26,31 @@ public class RunnerPlayer : MonoBehaviour
             Destroy(runnerBonus.GetComponent<Rigidbody>());
             runnerBonus.transform.SetParent(null);
             runnerBonus.GetComponent<Animation>().Play("RunnerBonusGrab");
-            //Destroy(runnerBonus);
             controller.UpdateCurrentPoints(other.GetComponent<RunnerBonus>().pointsValue);
         }
+        else if (other.GetComponent<RunnerEntity>() && other.GetComponent<RunnerEntity>().entityType == RunnerEntity.EntityType.Enemy && playerState == PlayerState.Idle)
+        {
+            playerState = PlayerState.Invincible;
+            StartCoroutine(HitByEnemy());
+        }
+    }
+
+    protected IEnumerator HitByEnemy()
+    {
+        if(lives != 0)
+        { 
+            lives--;
+            controller.livesText.text = lives.ToString();
+            boxCollider.enabled = false;
+            yield return new WaitForSeconds(2);
+            boxCollider.enabled = true;
+        }
+        else
+        {
+            controller.GameOver();
+        }
+
+        playerState = PlayerState.Idle;
+
     }
 }

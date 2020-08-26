@@ -6,6 +6,7 @@ public class RunnerEntity : MonoBehaviour
 {
     public Rigidbody rb;
     public float enemiesVelocity = 10;
+    public bool autoVelocity = true;
 
     private void Start()
     {
@@ -20,7 +21,10 @@ public class RunnerEntity : MonoBehaviour
 
     protected void AutomaticVelocity()
     {
-        rb.velocity = Vector3.forward * -enemiesVelocity;
+        if(autoVelocity == true)
+        { 
+            rb.velocity = Vector3.forward * -enemiesVelocity;
+        }
     }
 
     void Update()

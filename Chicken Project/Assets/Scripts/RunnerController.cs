@@ -9,11 +9,37 @@ public class RunnerController : MonoBehaviour
     public bool rightButtonPressed = false;
     public bool isRotating = false;
     public GameObject cylinder;
+    public GameObject rushModeGameObject;
     public Button leftButton;
     public Button rightButton;
     public float playerRotationVelocity = 2.5f;
+    public float spawnCooldown = 1;
+    public int spawnRate = 3;
     public int currentPoints;
     public Text pointsText;
+
+    private void Start()
+    {
+        rushModeGameObject.SetActive(false);
+        StartCoroutine(AddGameVelocity());
+    }
+
+    protected IEnumerator AddGameVelocity()
+    {
+        yield return new WaitForSeconds(10);
+        playerRotationVelocity += 0.1f;
+        if(spawnCooldown > 0.6f)
+        { 
+            spawnCooldown -= 0.1f;
+            StartCoroutine(AddGameVelocity());
+        }
+        else if (spawnCooldown > 0.5f)
+        {
+            spawnCooldown -= 0.2f;
+            spawnRate = 6;
+            rushModeGameObject.SetActive(true);
+        }
+    }
 
     protected void Rotation()
     {

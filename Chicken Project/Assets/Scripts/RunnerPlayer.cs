@@ -10,6 +10,13 @@ public class RunnerPlayer : MonoBehaviour
     {
         if (other.GetComponent<RunnerBonus>())
         {
+            RunnerBonus runnerBonus = other.GetComponent<RunnerBonus>();
+            runnerBonus.autoVelocity = false;
+            runnerBonus.enemiesVelocity = 0;
+            Destroy(runnerBonus.GetComponent<Rigidbody>());
+            runnerBonus.transform.SetParent(null);
+            runnerBonus.GetComponent<Animation>().Play("RunnerBonusGrab");
+            //Destroy(runnerBonus);
             controller.UpdateCurrentPoints(other.GetComponent<RunnerBonus>().pointsValue);
         }
     }

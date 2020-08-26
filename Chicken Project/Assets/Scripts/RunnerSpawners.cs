@@ -52,7 +52,7 @@ public class RunnerSpawners : MonoBehaviour
         randomTransforms.Clear();
         bonusTransforms.Clear();
 
-        for(int i = 0; i<spawners.Length-2; i++)
+        for(int i = 0; i<spawners.Length-runnerController.spawnRate; i++) //place how many things to spawn here
         {
             GetRandomInt();
         }
@@ -136,7 +136,7 @@ public class RunnerSpawners : MonoBehaviour
             bonusInstance.transform.rotation = targetTransform.rotation;
         }
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(runnerController.spawnCooldown);
         canSpawnEnemies = true;
     }
 

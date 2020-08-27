@@ -5,4 +5,6 @@ using UnityEngine;
 public class RunnerBonus : RunnerEntity
 {
     public int pointsValue = 100;
+
+    public virtual void BonusGrabbed() { }
 }

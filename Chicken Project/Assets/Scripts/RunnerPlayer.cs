@@ -27,6 +27,7 @@ public class RunnerPlayer : MonoBehaviour
             runnerBonus.transform.SetParent(null);
             runnerBonus.GetComponent<Animation>().Play("RunnerBonusGrab");
             controller.UpdateCurrentPoints(other.GetComponent<RunnerBonus>().pointsValue);
+            runnerBonus.BonusGrabbed();
         }
         else if (other.GetComponent<RunnerEntity>() && other.GetComponent<RunnerEntity>().entityType == RunnerEntity.EntityType.Enemy && playerState == PlayerState.Idle)
         {

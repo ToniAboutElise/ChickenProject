@@ -10,6 +10,7 @@ public class RunnerSpawners : MonoBehaviour
     public List<int> bonusTransforms;
     public GameObject enemyPrefab;
     public GameObject bonusPrefab;
+    public GameObject specialBonusPrefab;
     protected float enemiesVelocity;
     public float time;
     protected List<DifficultyLevel> levels;
@@ -114,7 +115,12 @@ public class RunnerSpawners : MonoBehaviour
     {
         canSpawnEnemies = false;
         GetRandomSpawnPoints();
-        GetBonusSpawns();
+
+        int randBonus = Random.Range(0, 3);
+        for(int i = 0; i < randBonus; i++)
+        { 
+            GetBonusSpawns();
+        }
 
         for (int i = 0; i < randomTransforms.Count; i++)
         {
@@ -126,10 +132,21 @@ public class RunnerSpawners : MonoBehaviour
             enemyInstance.transform.rotation = targetTransform.rotation;
         }
 
+        bool regularbonusSpawned = false;
         for (int i = 0; i < bonusTransforms.Count; i++)
         {
             Transform targetTransform = spawners[bonusTransforms[i]];
-            GameObject bonusInstance = Instantiate(bonusPrefab);
+            GameObject bonusInstance = null;
+            if (regularbonusSpawned == false)
+            { 
+                bonusInstance = Instantiate(bonusPrefab);
+                regularbonusSpawned = true;
+            }
+            else
+            {
+                bonusInstance = Instantiate(specialBonusPrefab);
+                regularbonusSpawned = false;
+            }
             bonusInstance.GetComponent<RunnerEntity>().enemiesVelocity = enemiesVelocity;
             bonusInstance.transform.parent = targetTransform;
             bonusInstance.transform.position = targetTransform.position;

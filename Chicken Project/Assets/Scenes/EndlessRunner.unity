@@ -1482,7 +1482,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.6603774, g: 0.47690493, b: 0.21493416, a: 0}
+  m_BackGroundColor: {r: 0.30718228, g: 0.45327193, b: 0.5566038, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1717,6 +1717,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 264f37bfc6321e647b3da92d080c23e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e68d2f4c68552a747b885708553372ce, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 264f37bfc6321e647b3da92d080c23e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e68d2f4c68552a747b885708553372ce, type: 2}
     - target: {fileID: -927199367670048503, guid: 264f37bfc6321e647b3da92d080c23e2,
         type: 3}
       propertyPath: m_Name
@@ -1768,12 +1778,32 @@ MonoBehaviour:
   runnerController: {fileID: 1719079317}
   freeSpaces: 0
   level: 0
+--- !u!23 &1686224110 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: 264f37bfc6321e647b3da92d080c23e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1686224106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1686224111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 264f37bfc6321e647b3da92d080c23e2,
     type: 3}
   m_PrefabInstance: {fileID: 1686224106}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1686224113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686224107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d38f709b4ce18848a4743a3f89be8c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 10
+  rend: {fileID: 1686224110}
 --- !u!1 &1719079316
 GameObject:
   m_ObjectHideFlags: 0

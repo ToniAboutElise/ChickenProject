@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RunnerController : MonoBehaviour
@@ -9,6 +10,7 @@ public class RunnerController : MonoBehaviour
     public bool leftButtonPressed = false;
     public bool rightButtonPressed = false;
     public bool isRotating = false;
+    public GameObject gameOverPanel;
     public GameObject cylinder;
     public GameObject rushModeGameObject;
     public Button leftButton;
@@ -22,6 +24,8 @@ public class RunnerController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
+        gameOverPanel.SetActive(false);
         rushModeGameObject.SetActive(false);
         StartCoroutine(AddGameVelocity());
         livesText.text = runnerPlayer.lives.ToString();
@@ -42,6 +46,11 @@ public class RunnerController : MonoBehaviour
             spawnRate = 6;
             rushModeGameObject.SetActive(true);
         }
+    }
+
+    public void RestartButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 
     protected void Rotation()
@@ -87,7 +96,8 @@ public class RunnerController : MonoBehaviour
 
     public void GameOver()
     {
-
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private void Update()

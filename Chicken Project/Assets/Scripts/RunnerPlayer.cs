@@ -40,10 +40,8 @@ public class RunnerPlayer : MonoBehaviour
         if(lives != 0)
         { 
             lives--;
-            controller.livesText.text = lives.ToString();
-            boxCollider.enabled = false;
+            controller.livesText.text = lives.ToString();            
             yield return new WaitForSeconds(2);
-            boxCollider.enabled = true;
         }
         else
         {
